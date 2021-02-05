@@ -9,8 +9,8 @@ namespace BinarySearchTree
     class Node
     {
         public int data;
-        public Node ChildNode1;
-        public Node ChildNode2;
+        public Node[] ChildNodes = new Node[2];
+
 
         public Node(int data)
         {
