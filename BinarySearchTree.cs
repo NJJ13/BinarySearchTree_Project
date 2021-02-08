@@ -51,46 +51,51 @@ namespace BinarySearchTree
             Node focusNode = RootNode;
             while (true)
             {
-                if (nodeToSearch.data < focusNode.data)
+                if (RootNode == null)
                 {
-                    if (focusNode.ChildNodes[0].data == nodeToSearch.data)
+                    Console.WriteLine("The data you are looking for does not exist within this tree.");
+                    return null;
+                }
+                else
+                {
+                    if (nodeToSearch.data < focusNode.data)
                     {
-                        return focusNode.ChildNodes[0];
+                        if (focusNode.ChildNodes[0] == null)
+                        {
+                            Console.WriteLine("The data you are looking for does not exist within this tree.");
+                            return null;
+                        }
+                        else if (focusNode.ChildNodes[0].data == nodeToSearch.data)
+                        {
+                            return focusNode.ChildNodes[0];
+                        }
                     }
-                }
-                else if (nodeToSearch.data > focusNode.data)
-                {
-                    if (focusNode.ChildNodes[1].data == nodeToSearch.data)
+                    else if (nodeToSearch.data > focusNode.data)
                     {
-                        return focusNode.ChildNodes[1];
+                        if (focusNode.ChildNodes[1] == null)
+                        {
+                            Console.WriteLine("The data you are looking for does not exist within this tree.");
+                            return null;
+
+                        }
+                        else if (focusNode.ChildNodes[1].data == nodeToSearch.data)
+                        {
+                            return focusNode.ChildNodes[1];
+                        }
                     }
-                }
-                else if (nodeToSearch.data < focusNode.data && nodeToSearch.data != focusNode.data)
-                {
-                    focusNode = focusNode.ChildNodes[0];
-                    continue;
-                }
-                else if (nodeToSearch.data > focusNode.data && nodeToSearch.data != focusNode.data)
-                {
-                    focusNode = focusNode.ChildNodes[1];
-                    continue;
-                }
-                else if (nodeToSearch.data < focusNode.data)
-                {
-                    if (focusNode.ChildNodes[0] == null)
+                    else if (nodeToSearch.data < focusNode.data && nodeToSearch.data != focusNode.data)
                     {
-                        Console.WriteLine("The data you are looking for does not exist within this tree.");
-                        return null;
+                        focusNode = focusNode.ChildNodes[0];
+                        continue;
                     }
-                }
-                else if (nodeToSearch.data > focusNode.data)
-                {
-                    if (focusNode.ChildNodes[1] == null)
+                    else if (nodeToSearch.data > focusNode.data && nodeToSearch.data != focusNode.data)
                     {
-                        Console.WriteLine("The data you are looking for does not exist within this tree.");
-                        return null;
+                        focusNode = focusNode.ChildNodes[1];
+                        continue;
                     }
+                    
                 }
+                
             }
         }
     }
